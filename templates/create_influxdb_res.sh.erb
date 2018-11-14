@@ -1,0 +1,6 @@
+#!/bin/bash
+
+/usr/bin/influx -execute "CREATE DATABASE <%= @grafana_influxdb_name %> WITH DURATION 365d"
+/usr/bin/influx -execute "CREATE USER <%= @grafana_influxdb_user %> WITH PASSWORD '<%= @grafana_influxdb_pwd %>'"
+/usr/bin/influx -execute "GRANT ALL ON <%= @grafana_influxdb_name %> TO <%= @grafana_influxdb_user %>"
+
