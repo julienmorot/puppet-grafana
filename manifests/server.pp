@@ -4,12 +4,7 @@ class grafanagalera::server (
 	$grafana_influxdb_pwd = "grafanagalera_pwd",
 ) {
 
-	apt::source { "grafana_deb_repo":
-		location => "https://packagecloud.io/grafana/stable/debian",
-		key  => "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB",
-		repos=> "main",
-		release  => "stretch",
-	}
+    include ::grafanagalera
 
 	ensure_packages(['influxdb','influxdb-client','grafana'], { ensure => present, })
 
