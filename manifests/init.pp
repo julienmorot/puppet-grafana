@@ -44,11 +44,19 @@
 #
 class grafanagalera {
 
-	apt::source { "grafana_deb_repo":
+    apt::source { "influxdb_deb_repo":
         location => "https://repos.influxdata.com/debian",
         key  => "05CE15085FC09D18E99EFB22684A14CF2582E0C5",
         repos=> "stable",
         release  => "jessie",
-	}
+    }
+
+    apt::source { "grafana_deb_repo":
+        location => "https://packagecloud.io/grafana/stable/debian/",
+        key => "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB",
+        repos=> "main",
+        release  => "stretch",
+    }
+
 
 }
