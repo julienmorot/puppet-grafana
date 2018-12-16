@@ -1,0 +1,17 @@
+#!/bin/bash
+
+curl -L -i \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -X POST -d '{ \
+    "name":"Telegraf via InfluxDB", \
+    "type":"influxdb", \
+    "url":"http://<%= @fqdn %>:8086", \
+    "access":"proxy", \
+    "basicAuth":false, \
+    "database":"<%= @grafana_influxdb_name %>", \
+    "user":"<%= @grafana_influxdb_user %>", \
+    "password":"<%= @grafana_influxdb_pwd %>"} \
+  ' \
+  http://<%= @grafana_influxdb_user %>:<%= @grafana_influxdb_pwd %>@<%= @fqdn %>:3000/api/datasources
+
