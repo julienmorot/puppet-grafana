@@ -1,11 +1,11 @@
-class grafanagalera::telegraf (
-    $grafana_influxdb_name = "grafanagalera_db",
-    $grafana_influxdb_user = "grafanagalera_user",
-    $grafana_influxdb_pwd = "grafanagalera_pwd",
+class grafana::telegraf (
+    $grafana_influxdb_name = "grafana_db",
+    $grafana_influxdb_user = "grafana_user",
+    $grafana_influxdb_pwd = "grafana_pwd",
     $grafana_influxdb_server = "",
 ) {
 
-    include ::grafanagalera
+    include ::grafana
     ensure_packages(['telegraf'], { ensure => present, })
 
     File { "/etc/telegraf/telegraf.conf":

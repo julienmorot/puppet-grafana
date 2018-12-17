@@ -1,7 +1,7 @@
-# Class: grafanagalera
+# Class: grafana
 # ===========================
 #
-# Full description of class grafanagalera here.
+# Full description of class grafana here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'grafanagalera':
+#    class { 'grafana':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,7 +42,7 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class grafanagalera {
+class grafana {
 
     apt::source { "influxdb_deb_repo":
         location => "https://repos.influxdata.com/debian",

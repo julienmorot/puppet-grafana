@@ -1,12 +1,12 @@
-# grafanagalera
+# grafana
 
 #### Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with grafanagalera](#setup)
-    * [What grafanagalera affects](#what-grafanagalera-affects)
+1. [Setup - The basics of getting started with grafana](#setup)
+    * [What grafana affects](#what-grafana-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with grafanagalera](#beginning-with-grafanagalera)
+    * [Beginning with grafana](#beginning-with-grafana)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
@@ -18,7 +18,7 @@ Simple module to build with ubuntu LTS a Grafana/InfluxDB server and Telegraf on
 
 ## Setup
 
-### Beginning with grafanagalera
+### Beginning with grafana
 
 
 ## Usage
@@ -29,7 +29,7 @@ You must customize files and check under the files directory to fit your needs.
 For a server :
 ```
 node 'server' {
-    class { grafanagalera::server:
+    class { grafana::server:
         grafana_admin_user => "admin",
         grafana_admin_pass => "FuckingSecretPassword",
     }
@@ -39,10 +39,10 @@ node 'server' {
 For a client :
 ```
 node 'host' {
-    class { grafanagalera::telegraf:
-        grafana_influxdb_name => "grafanagalera_db",
-        grafana_influxdb_user => "grafanagalera_user",
-        grafana_influxdb_pwd => "grafanagalera_pwd",
+    class { grafana::telegraf:
+        grafana_influxdb_name => "grafana_db",
+        grafana_influxdb_user => "grafana_user",
+        grafana_influxdb_pwd => "grafana_pwd",
         grafana_influxdb_server => "mon.int.morot.fr",
     }
 }

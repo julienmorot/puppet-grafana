@@ -1,12 +1,12 @@
-class grafanagalera::server (
-    $grafana_influxdb_name = "grafanagalera_db",
-    $grafana_influxdb_user = "grafanagalera_user",
-    $grafana_influxdb_pwd = "grafanagalera_pwd",
+class grafana::server (
+    $grafana_influxdb_name = "grafana_db",
+    $grafana_influxdb_user = "grafana_user",
+    $grafana_influxdb_pwd = "grafana_pwd",
     $grafana_admin_user = "admin",
     $grafana_admin_pass = "admin",
 ) {
 
-    include ::grafanagalera
+    include ::grafana
 
     ensure_packages(['influxdb','grafana'], { ensure => present, })
 
