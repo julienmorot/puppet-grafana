@@ -43,20 +43,20 @@ class grafana::server (
         require  => File["/root/.${module_name}/create_influxdb_res.sh"],
     }
 
-    File { "/root/.${module_name}/configure_grafana.sh":
+    File { "/root/.${module_name}/add_influxdb_to_grafana.sh":
         mode   => "440",
         owner  => root,
         group  => root,
-        content => template("${module_name}/configure_grafana.sh.erb")
+        content => template("${module_name}/add_influxdb_to_grafana.sh.erb")
     }
 
     Exec { 'exec_configure_grafana':
-        command  => "/bin/bash /root/.${module_name}/configure_grafana.sh && touch /root/.${module_name}/configure_grafana.sh.done",
+        command  => "/bin/bash /root/.${module_name}/add_influxdb_to_grafana.sh && touch /root/.${module_name}/add_influxdb_to_grafana.sh.done",
         cwd      => "/root",
         path     => '/usr/bin:/usr/sbin:/bin:/sbin',
         provider => shell,
-        unless   => ["test -f /root/.${module_name}/configure_grafana.sh.done"],
-        require  => File["/root/.${module_name}/configure_grafana.sh"],
+        unless   => ["test -f /root/.${module_name}/add_influxdb_to_grafana.sh.done"],
+        require  => File["/root/.${module_name}/add_influxdb_to_grafana.sh"],
     }
 
     File { "/etc/grafana/grafana.ini":
