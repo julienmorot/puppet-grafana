@@ -13,5 +13,5 @@ curl -L -i \
     "user":"<%= @grafana_influxdb_user %>", \
     "password":"<%= @grafana_influxdb_pwd %>"} \
   ' \
-  http://<%= @grafana_influxdb_user %>:<%= @grafana_influxdb_pwd %>@<%= @fqdn %>:3000/api/datasources
+  http://<%= @grafana_admin_user %>:<%= @grafana_admin_pass %>@<%= @fqdn %>:3000/api/datasources
 
