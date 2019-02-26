@@ -7,6 +7,7 @@ class grafana::telegraf (
 
     include ::grafana
     ensure_packages(['telegraf'], { ensure => present, })
+    ensure_packages(['sysstat'], { ensure => present, })
 
     File { "/etc/telegraf/telegraf.conf":
         mode   => "644",
