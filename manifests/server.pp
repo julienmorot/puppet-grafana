@@ -43,11 +43,27 @@ class grafana::server (
         require  => File["/root/.${module_name}/create_influxdb_res.sh"],
     }
 
-    File { "/usr/share/grafana/conf/provisioning/datasources/influxdb.yaml":
+    File { "/etc/grafana/provisioning/datasources/influxdb.yaml":
         mode => "0640",
         owner => "root",
         group => "grafana",
         content => template("${module_name}/influxdb.yaml.erb"),
+        notify => Service['grafana-server'],
+    }
+
+    File { "/etc/grafana/provisioning/datasources/dashboard.yaml":
+        mode => "0640",
+        owner => "root",
+        group => "grafana",
+        content => template("${module_name}/dashboard.yaml.erb"),
+        notify => Service['grafana-server'],
+    }
+
+    File { "/usr/share/grafana/public/dashboards/system_rev4.json":
+        mode => "0640",
+        owner => "root",
+        group => "grafana",
+        content => template("${module_name}/system_rev4.json.erb"),
         notify => Service['grafana-server'],
     }
 
