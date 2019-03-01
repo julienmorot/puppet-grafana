@@ -52,11 +52,10 @@ class grafana {
     }
 
     apt::source { "grafana_deb_repo":
-        location => "https://packagecloud.io/grafana/stable/debian/",
-        key => "418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB",
+        location => "https://packages.grafana.com/oss/deb",
+        key => "4E40DDF6D76E284A4A6780E48C8C34C524098CB6",
         repos=> "main",
-        release  => "stretch",
+        release  => "stable",
     }
-
 
 }
